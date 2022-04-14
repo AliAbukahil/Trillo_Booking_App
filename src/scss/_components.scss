@@ -2,28 +2,78 @@
 // LOGO
 .logo {
   height: 3.25rem;
-  margin: 1.5rem 0 0 1.5rem;
+  margin-left: 3rem;
 }
 
 ///////////////////////////
 // SEARCH
 
 .search {
+  // flex: grow shrink basis; basis is like width
+  flex: 0 0 40%;
+
+  display: flex;
+  align-items: center; // to center the element along the cross Axis
+  justify-content: center; // to center the element along the main Axis
+
   &__input {
+    // why inherit value? cuz input element doesn't inherit the font-family of the global document, so we have to automatically set it to inherit here and the same thing for the font-size :D
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    // Animation
+    transition: all 0.2s;
+    ///
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    // to change the styles of the placeholder attribute
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+  // the plus + to select the adjacent search button element, because they are siblings the (input and button) we can use the + adjacent selector
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
   }
 
   &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    // to move the button a little bit down
+    &:active {
+      transform: translateY(2px);
+    }
   }
 
   &__icon {
     height: 2rem;
     width: 2rem;
+    // to change the color of the SVG icon we use the fill property
+    fill: var(--color-grey-dark-3);
   }
 }
 
 ///////////////////////////
 // USER NAVIGATION
 .user-nav {
+  background-color: greenyellow;
   &__icon-box {
   }
 

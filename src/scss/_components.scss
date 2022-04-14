@@ -2,7 +2,7 @@
 // LOGO
 .logo {
   height: 3.25rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 ///////////////////////////
@@ -73,26 +73,62 @@
 ///////////////////////////
 // USER NAVIGATION
 .user-nav {
-  background-color: greenyellow;
+  // align-self: stretch; to overwrite   align-items: center; in the header class in the _layout file
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  // user-nav navEL and all the three direct divS children in the nav el where the nav has user-nav class. look html file
+  & > * {
+    padding: 0 2rem; // 0 top/bottom 2rem left/right
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
   &__icon-box {
+    position: relative;
   }
 
   &__icon {
     height: 2.5rem;
     width: 2.5rem;
+    fill: var(--color-grey-dark-2);
+    position: relative;
   }
 
   &__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    display: flex;
+    justify-content: center; // centers the content horizontally
+    align-items: center; // centers the content vertically
   }
 
-  &__user {
-  }
+  //   &__user {
+  // no need for this
+  //   }
 
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
+    margin-right: 1rem;
   }
 
-  &__user-name {
-  }
+  //   &__user-name {
+  // no need for this
+  //   }
 }

@@ -137,15 +137,65 @@
 // Side Navigation
 
 .side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
   &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      // adding margin on the items except the last one
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__link {
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    // remember we can set deferent settings for deferent properties,
+    // we can have like staged animation
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, -0.01, 0, 0.98) 0.2s,
+      background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  //when clicking the link it fades a little bit
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  // pseudo class for <a> Tag
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
   }
 
   &__icon {
     width: 1.7rem;
     height: 1.7rem;
+    margin-right: 2rem;
+    fill: currentColor; // currentColor is the color of the current element or the parent element in this case is the __link color
   }
 }
 

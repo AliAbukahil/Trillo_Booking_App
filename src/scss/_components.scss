@@ -321,3 +321,85 @@
     box-shadow: none;
   }
 }
+
+////////////////////////////
+// Paragraph
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+////////////////////////////
+// List
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    // grow 0 shrink 0 width/basis 50%
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+  }
+
+  // Including a SVG for all the list items
+  // better than adding the same SVG for every list item in HTML Syntax
+
+  &__item::before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.7rem;
+
+    //OLDER Browsers
+    // with this approach, you can't change the color of the SVG like you can change it in the HTML approach 😿
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+
+    // For new Browsers we use masks 😃
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+
+    // for the future when the browsers start implementing this feature and we don't need the prefix -webkit 😃
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+  }
+}
+
+////////////////////////////
+// Recommend
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  display: flex;
+  align-items: center;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__friends {
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    // this will select all the photos except the last photo which is last child
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}

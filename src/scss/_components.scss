@@ -429,17 +429,21 @@
 
     //OLDER Browsers
     // with this approach, you can't change the color of the SVG like you can change it in the HTML approach 😿
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
-    // For new Browsers we use masks 😃
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
+    // Feature query
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      // For new Browsers we use masks 😃
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
 
-    // for the future when the browsers start implementing this feature and we don't need the prefix -webkit 😃
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+      // for the future when the browsers start implementing this feature and we don't need the prefix -webkit 😃
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 

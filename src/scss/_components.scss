@@ -141,12 +141,25 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $breakPoint-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       // adding margin on the items except the last one
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $breakPoint-medium) {
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: $breakPoint-medium) {
+      flex: 1;
     }
   }
 
@@ -189,6 +202,11 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $breakPoint-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
   }
 
   &__icon {
@@ -206,6 +224,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $breakPoint-medium) {
+    display: none;
+  }
 }
 
 ///////////////////////////
@@ -397,6 +419,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -408,7 +431,7 @@
 
     // this will select all the photos except the last photo which is last child
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -423,6 +446,11 @@
   position: relative;
   margin-bottom: 3.5rem;
   overflow: hidden;
+
+  @media only screen and (max-width: $breakPoint-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -485,8 +513,11 @@
 // Call To Action
 .cta {
   padding: 3.5rem 0;
-
   text-align: center;
+
+  @media only screen and (max-width: $breakPoint-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 2rem;

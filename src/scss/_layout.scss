@@ -22,6 +22,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: $breakPoint-smallest) {
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 11rem;
+  }
 }
 
 .content {
@@ -59,6 +65,10 @@
   @media only screen and (max-width: $breakPoint-medium) {
     padding: 3rem;
   }
+
+  @media only screen and (max-width: $breakPoint-small) {
+    flex-direction: column;
+  }
 }
 
 .description {
@@ -69,9 +79,16 @@
   padding: 3rem;
   margin-right: 4.5rem;
 
+  // When you have two Media Queries the
+  // larger screen before small screen NOT the otherwise, Why? Because if there are going to be some conflicting styles we want the last one to be applied. 😬
   @media only screen and (max-width: $breakPoint-medium) {
     padding: 2rem;
     margin-right: 3rem;
+  }
+
+  @media only screen and (max-width: $breakPoint-small) {
+    margin-right: 0rem;
+    margin-bottom: 3rem;
   }
 }
 
